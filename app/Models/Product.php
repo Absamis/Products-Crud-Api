@@ -12,7 +12,7 @@ class Product extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
-
+    protected $appends = ["image_url"];
     protected $fillable = [
         "name",
         "category",

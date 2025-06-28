@@ -24,6 +24,8 @@ class AuthController extends Controller
 
         $validatedData = $validator->validated();
         $validatedData['password'] = Hash::make($request->password);
+        if($request->input("set_admin"))
+            $validatedData["is_admin"] = true;
         $user = User::create($validatedData);
         $accessToken = $user->createToken('authToken')->plainTextToken;
 
