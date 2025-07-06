@@ -123,7 +123,7 @@ class ProductController extends Controller
         $products = Product::where('name', 'like', '%'.$search.'%')
         ->orWhere('category', 'like', '%' . $search . '%')
         ->get();
-        return $this->jsonData(true, "Result fecthed", ProductResource::collection($products));
+        return $this->jsonData(true, "Result fecthed", $products);
     }
 
     public function allProducts(Request $request, $id = null){

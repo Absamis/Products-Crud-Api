@@ -28,4 +28,9 @@ class UserController extends Controller
             "products" => $products
         ]);
     }
+
+    public function userDetails(){
+        $user = auth()->user();
+        return $this->jsonData(true, "User details fetched", $user);
+    }
 }
